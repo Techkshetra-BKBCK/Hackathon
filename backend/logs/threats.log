@@ -1,0 +1,241 @@
+2025-01-31 10:43:54,629 - Blocked IP: 192.168.1.100
+2025-01-31 10:55:37,678 - Blocked IP: 192.168.1.100
+2025-01-31 10:55:37,803 - -- BEGIN Twilio API Request --
+2025-01-31 10:55:37,803 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 10:55:37,803 - Headers:
+2025-01-31 10:55:37,803 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 10:55:37,803 - Accept : application/json
+2025-01-31 10:55:37,803 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 10:55:37,803 - X-Twilio-Client : python-9.4.4
+2025-01-31 10:55:37,803 - Accept-Charset : utf-8
+2025-01-31 10:55:37,803 - -- END Twilio API Request --
+2025-01-31 10:55:38,381 - Response Status Code: 401
+2025-01-31 10:55:38,382 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 10:55:41 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ80f6d7ace155539e1d50f72ed2720d9b', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 16f47394e79849272b2daca917491676.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'CY4WC0qMramwFAZhRKcgw1NbArjd8HmIdWZw-99KNzZCc5Xdz4ApHg=='}
+2025-01-31 11:00:01,290 - Blocked IP: 192.168.1.100
+2025-01-31 11:00:01,433 - -- BEGIN Twilio API Request --
+2025-01-31 11:00:01,433 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:00:01,433 - Headers:
+2025-01-31 11:00:01,433 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:00:01,433 - Accept : application/json
+2025-01-31 11:00:01,433 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:00:01,433 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:00:01,433 - Accept-Charset : utf-8
+2025-01-31 11:00:01,433 - -- END Twilio API Request --
+2025-01-31 11:00:02,263 - Response Status Code: 401
+2025-01-31 11:00:02,263 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:00:05 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQa0d9043132e73abfae77897476357d8c', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 e7f05b449e0c02865fc04797285f6b34.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'rFoQposHKaZQ9MmqJ6AXcT0cxAmuCnRnkwTLtCP1i8oqsjg_h1g7Fw=='}
+2025-01-31 11:00:14,128 - Blocked IP: 192.168.1.100
+2025-01-31 11:00:14,242 - -- BEGIN Twilio API Request --
+2025-01-31 11:00:14,242 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:00:14,242 - Headers:
+2025-01-31 11:00:14,242 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:00:14,243 - Accept : application/json
+2025-01-31 11:00:14,243 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:00:14,243 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:00:14,243 - Accept-Charset : utf-8
+2025-01-31 11:00:14,243 - -- END Twilio API Request --
+2025-01-31 11:00:14,636 - Response Status Code: 401
+2025-01-31 11:00:14,637 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:00:17 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQbe171179885fc75acfde5af2b4f3a636', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a7dc8d09f0f88ce73b14b50e7fb2f762.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'iuNcBcHZuMD_Ks5dV99LuqsXCbmS7K-MUkiqV8S9theAO6U2IodZoQ=='}
+2025-01-31 11:00:15,858 - Blocked IP: 192.168.1.100
+2025-01-31 11:00:15,858 - -- BEGIN Twilio API Request --
+2025-01-31 11:00:15,858 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:00:15,858 - Headers:
+2025-01-31 11:00:15,858 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:00:15,858 - Accept : application/json
+2025-01-31 11:00:15,858 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:00:15,858 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:00:15,858 - Accept-Charset : utf-8
+2025-01-31 11:00:15,858 - -- END Twilio API Request --
+2025-01-31 11:00:16,260 - Response Status Code: 401
+2025-01-31 11:00:16,260 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:00:19 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ33de9a18c0d6a6e39f36aca84270e12f', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 36aa87323d481c0a24742e19e8cd350e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'im1utwkST96UuUqu1CH-Gqnnxqnh5yxBDKvTcm9TnYTfyRJ_kHSyOA=='}
+2025-01-31 11:01:29,358 - Blocked IP: 192.168.1.100
+2025-01-31 11:01:29,487 - -- BEGIN Twilio API Request --
+2025-01-31 11:01:29,487 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:01:29,487 - Headers:
+2025-01-31 11:01:29,487 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:01:29,487 - Accept : application/json
+2025-01-31 11:01:29,487 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:01:29,487 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:01:29,487 - Accept-Charset : utf-8
+2025-01-31 11:01:29,487 - -- END Twilio API Request --
+2025-01-31 11:01:30,154 - Response Status Code: 401
+2025-01-31 11:01:30,155 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:01:33 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQa7dc5cfd309663574e5479211292a611', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 ae34661df369755f67fcb5cbdcee5fe0.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'jfQvZV16d0JYfcGhg11gYkps9bteA4O3BThjeucZkgoZ7LJC6ZAmLA=='}
+2025-01-31 11:01:49,271 - Blocked IP: 192.168.1.100
+2025-01-31 11:01:49,382 - -- BEGIN Twilio API Request --
+2025-01-31 11:01:49,382 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:01:49,382 - Headers:
+2025-01-31 11:01:49,382 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:01:49,382 - Accept : application/json
+2025-01-31 11:01:49,382 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:01:49,382 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:01:49,382 - Accept-Charset : utf-8
+2025-01-31 11:01:49,382 - -- END Twilio API Request --
+2025-01-31 11:01:49,919 - Response Status Code: 401
+2025-01-31 11:01:49,919 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:01:53 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQc97b1b6f554b96d1bbea93e32ec6eae3', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 66f806c581766a713118c171ea9522a2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'tNv4m7mVnKKuBmyY6PUOj7IXPzuqdADGOR2KcQ1Skn-31lFcVJ2k6A=='}
+2025-01-31 11:03:01,524 - Blocked IP: 192.168.1.100
+2025-01-31 11:03:01,639 - -- BEGIN Twilio API Request --
+2025-01-31 11:03:01,639 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:03:01,639 - Headers:
+2025-01-31 11:03:01,639 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:03:01,640 - Accept : application/json
+2025-01-31 11:03:01,640 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:03:01,640 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:03:01,640 - Accept-Charset : utf-8
+2025-01-31 11:03:01,640 - -- END Twilio API Request --
+2025-01-31 11:03:02,621 - Response Status Code: 401
+2025-01-31 11:03:02,621 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:03:05 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ3e089e76e0ea3ac2389c6ac9b3efc1d4', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 4518b5e858becf2cec46173d926b2714.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': '4B5WIgYtfoecKbKGhjnbwewfriGMlqxk_bvb7zBkyFTtXA3QzcMVjA=='}
+2025-01-31 11:03:23,372 - Blocked IP: 192.168.1.100
+2025-01-31 11:03:23,493 - -- BEGIN Twilio API Request --
+2025-01-31 11:03:23,493 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:03:23,493 - Headers:
+2025-01-31 11:03:23,493 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:03:23,493 - Accept : application/json
+2025-01-31 11:03:23,493 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:03:23,493 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:03:23,493 - Accept-Charset : utf-8
+2025-01-31 11:03:23,493 - -- END Twilio API Request --
+2025-01-31 11:03:24,197 - Response Status Code: 401
+2025-01-31 11:03:24,198 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:03:27 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ91f67b98499e3efde49ee942b602c130', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 e18205e7c49807bfe336e3f0e60f9538.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'vdrM7Ce6gjnXVcGeiwfzpp8EMNqhNvuefEOFcQux5hXJGCRNHdb9RA=='}
+2025-01-31 11:03:24,539 - Blocked IP: 192.168.1.100
+2025-01-31 11:03:24,540 - -- BEGIN Twilio API Request --
+2025-01-31 11:03:24,540 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:03:24,540 - Headers:
+2025-01-31 11:03:24,540 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:03:24,540 - Accept : application/json
+2025-01-31 11:03:24,540 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:03:24,540 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:03:24,540 - Accept-Charset : utf-8
+2025-01-31 11:03:24,540 - -- END Twilio API Request --
+2025-01-31 11:03:24,996 - Response Status Code: 401
+2025-01-31 11:03:24,996 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:03:28 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ43f6c115826d7d4e4c25ffd88ee870a8', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 18f980792cf61cfa4b76cd037fc0bf56.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'KaAk3NZlQCvf9UPsm0RZM43mu9Y4G5sPmyUxAgBGF-n4XzsLzIEnkA=='}
+2025-01-31 11:04:01,453 - Blocked IP: 192.168.1.100
+2025-01-31 11:04:01,622 - -- BEGIN Twilio API Request --
+2025-01-31 11:04:01,622 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:04:01,622 - Headers:
+2025-01-31 11:04:01,622 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:04:01,622 - Accept : application/json
+2025-01-31 11:04:01,622 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:04:01,622 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:04:01,622 - Accept-Charset : utf-8
+2025-01-31 11:04:01,622 - -- END Twilio API Request --
+2025-01-31 11:04:02,739 - Response Status Code: 401
+2025-01-31 11:04:02,740 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:04:05 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ593e6609299a94e9f586059ec3e523fa', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5a2c0e4cbca62bdd9c781d442b0f865e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'nAAFH9ldyzM7AlMXrr4-FgykD3SPZA6GkWpnIAUGO86qLicaFugBYQ=='}
+2025-01-31 11:04:02,770 - Blocked IP: 192.168.1.100
+2025-01-31 11:04:02,770 - -- BEGIN Twilio API Request --
+2025-01-31 11:04:02,771 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:04:02,771 - Headers:
+2025-01-31 11:04:02,771 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:04:02,771 - Accept : application/json
+2025-01-31 11:04:02,771 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:04:02,771 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:04:02,771 - Accept-Charset : utf-8
+2025-01-31 11:04:02,771 - -- END Twilio API Request --
+2025-01-31 11:04:03,119 - Response Status Code: 401
+2025-01-31 11:04:03,119 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:04:06 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ6d2fb008666737d71747055b17ab963f', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 76c8b6149bd17b365b0a900e898b9710.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': '5eJP6WvzOpcudif6AzzKTKpUVbKP6qdxmFuh4yTa6wt8PqJuA9oywA=='}
+2025-01-31 11:04:03,144 - Blocked IP: 192.168.1.101
+2025-01-31 11:04:03,145 - -- BEGIN Twilio API Request --
+2025-01-31 11:04:03,145 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:04:03,145 - Headers:
+2025-01-31 11:04:03,145 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:04:03,145 - Accept : application/json
+2025-01-31 11:04:03,145 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:04:03,145 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:04:03,145 - Accept-Charset : utf-8
+2025-01-31 11:04:03,145 - -- END Twilio API Request --
+2025-01-31 11:04:03,585 - Response Status Code: 401
+2025-01-31 11:04:03,585 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:04:06 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ4a85421325f3401a3bdeef1579e0db2b', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 8db549d367d0865d2cf0abf52ae953e4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': '3WvexEgOFiMnaSl5zWxq1edLPOEDpQsWE8zMFmqHg6CGP7PblvJqwQ=='}
+2025-01-31 11:04:03,607 - Blocked IP: 192.168.1.102
+2025-01-31 11:04:03,607 - -- BEGIN Twilio API Request --
+2025-01-31 11:04:03,607 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:04:03,607 - Headers:
+2025-01-31 11:04:03,607 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:04:03,607 - Accept : application/json
+2025-01-31 11:04:03,607 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:04:03,607 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:04:03,607 - Accept-Charset : utf-8
+2025-01-31 11:04:03,607 - -- END Twilio API Request --
+2025-01-31 11:04:03,941 - Response Status Code: 401
+2025-01-31 11:04:03,941 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:04:07 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQcc4c664503640356d794d8cd40415ab1', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 4aa1e202c9905314fe3ddeb2da686b0e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'riqk0FO4sMxYoK_oyv925JSzWxuoZ6-LWywo2OLstc1BGJ_8Hh81Jg=='}
+2025-01-31 11:04:03,968 - Blocked IP: 192.168.1.103
+2025-01-31 11:04:03,968 - -- BEGIN Twilio API Request --
+2025-01-31 11:04:03,968 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:04:03,968 - Headers:
+2025-01-31 11:04:03,968 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:04:03,968 - Accept : application/json
+2025-01-31 11:04:03,968 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:04:03,968 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:04:03,968 - Accept-Charset : utf-8
+2025-01-31 11:04:03,968 - -- END Twilio API Request --
+2025-01-31 11:04:04,404 - Response Status Code: 401
+2025-01-31 11:04:04,405 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:04:07 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ2793d650ffc0fcf9413262bdd65bdf32', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a7dc8d09f0f88ce73b14b50e7fb2f762.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': '97diZhLcujrtI0lN3NkMZYncKWORxk8P58aO5w8XkMhLYNCSPj7LIg=='}
+2025-01-31 11:05:29,974 - Blocked IP: 192.168.1.100
+2025-01-31 11:05:30,106 - -- BEGIN Twilio API Request --
+2025-01-31 11:05:30,106 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:05:30,106 - Headers:
+2025-01-31 11:05:30,106 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:05:30,106 - Accept : application/json
+2025-01-31 11:05:30,106 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:05:30,106 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:05:30,106 - Accept-Charset : utf-8
+2025-01-31 11:05:30,106 - -- END Twilio API Request --
+2025-01-31 11:05:31,025 - Response Status Code: 401
+2025-01-31 11:05:31,025 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:05:34 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQf4818fd07bdc57efbe71f81e40926237', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 bdec8eeb30430c64f9a0cee1809cd766.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'SPkHzBed0oiuhK214iTMNZgas3gQpCAd99ifsJVOfReUfzNfrgMOeQ=='}
+2025-01-31 11:07:07,892 - Blocked IP: 192.168.1.100
+2025-01-31 11:07:08,017 - -- BEGIN Twilio API Request --
+2025-01-31 11:07:08,017 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:07:08,017 - Headers:
+2025-01-31 11:07:08,017 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:07:08,017 - Accept : application/json
+2025-01-31 11:07:08,017 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:07:08,017 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:07:08,018 - Accept-Charset : utf-8
+2025-01-31 11:07:08,018 - -- END Twilio API Request --
+2025-01-31 11:07:08,877 - Response Status Code: 401
+2025-01-31 11:07:08,877 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:07:12 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ2eab4b738839828474b15f5baaa5e228', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 8db549d367d0865d2cf0abf52ae953e4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'fueNfGdOAY_Jk2INyn0R2iCp9rbmVW5LZvV_69YY3Ne8YLG5X0DlUg=='}
+2025-01-31 11:07:13,808 - Blocked IP: 192.168.1.100
+2025-01-31 11:07:13,921 - -- BEGIN Twilio API Request --
+2025-01-31 11:07:13,921 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:07:13,921 - Headers:
+2025-01-31 11:07:13,921 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:07:13,921 - Accept : application/json
+2025-01-31 11:07:13,921 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:07:13,921 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:07:13,921 - Accept-Charset : utf-8
+2025-01-31 11:07:13,921 - -- END Twilio API Request --
+2025-01-31 11:07:14,331 - Response Status Code: 401
+2025-01-31 11:07:14,331 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:07:17 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ74926fa2f1c9ac2f8a028e56484a0b04', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 506384681faf799856202b309eeb7796.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': '3Rux4yHBsfJCO8H3eerj_Wlr8osbCqrUMTT57JOvQZWTPWqXcoL4tw=='}
+2025-01-31 11:07:27,798 - Blocked IP: 192.168.1.100
+2025-01-31 11:07:27,910 - -- BEGIN Twilio API Request --
+2025-01-31 11:07:27,910 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:07:27,910 - Headers:
+2025-01-31 11:07:27,910 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:07:27,910 - Accept : application/json
+2025-01-31 11:07:27,911 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:07:27,911 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:07:27,911 - Accept-Charset : utf-8
+2025-01-31 11:07:27,911 - -- END Twilio API Request --
+2025-01-31 11:07:28,357 - Response Status Code: 401
+2025-01-31 11:07:28,358 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:07:31 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQbe42ef333f99c4770b723fcddbbe36e9', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 997b4867406a89e0ae8c61f32e87364c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'gdex7zfGyESfeYA--NOPdUxmVo4W8qcCaSpmsd2XVkdvA9nIhSbfeA=='}
+2025-01-31 11:07:31,354 - Blocked IP: 192.168.1.100
+2025-01-31 11:07:31,477 - -- BEGIN Twilio API Request --
+2025-01-31 11:07:31,477 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:07:31,477 - Headers:
+2025-01-31 11:07:31,477 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:07:31,477 - Accept : application/json
+2025-01-31 11:07:31,477 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:07:31,478 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:07:31,478 - Accept-Charset : utf-8
+2025-01-31 11:07:31,478 - -- END Twilio API Request --
+2025-01-31 11:07:32,165 - Response Status Code: 401
+2025-01-31 11:07:32,165 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:07:35 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ139900ab6686b04027778d5d0c6a0d11', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 d8e58dd66e8b3da50936cdf5de79a376.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'gzi4BTW7fvv7-SlkqLiMlskBUTj_HU2tK3g24-ZJ9nJWWyiAR1HwTw=='}
+2025-01-31 11:07:37,983 - Blocked IP: 192.168.1.100
+2025-01-31 11:07:38,095 - -- BEGIN Twilio API Request --
+2025-01-31 11:07:38,096 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:07:38,096 - Headers:
+2025-01-31 11:07:38,096 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:07:38,096 - Accept : application/json
+2025-01-31 11:07:38,096 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:07:38,096 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:07:38,096 - Accept-Charset : utf-8
+2025-01-31 11:07:38,096 - -- END Twilio API Request --
+2025-01-31 11:07:38,695 - Response Status Code: 401
+2025-01-31 11:07:38,695 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:07:41 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ18b749017e7be40ca153893e9fc4d1fd', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a7dc8d09f0f88ce73b14b50e7fb2f762.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'EZqcmtUZgSI4dfAjSWQVFmcA2ecVqcpyvsPREZpkcLxgJEYyPkN8PQ=='}
