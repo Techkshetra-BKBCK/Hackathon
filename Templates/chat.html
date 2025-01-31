@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block title %}Chat with {{ pdf.original_filename }}{% endblock %}
+{% load chat_filters %}
+
+{% block content %}
+<div class="container">
+    <h3>Chatting with: {{ pdf.original_filename }}</h3>
+    
+    <div id="chat-container" class="mt-4" style="height: 60vh; overflow-y: auto">
+        {% for msg in chat_messages %}
+            <div class="alert alert-primary user-query">
+                <strong>You:</strong> {{ msg.message }}
+            </div>
+            <div class="alert alert-success ai-response">
+                <div class="answer-section">
+                    {{ msg.response|format_code_blocks }}
+                </div>
+                <hr>
+                <div class="sources-section">
+                    <strong>Sources:</strong>
+                    <ul class="source-list">
+                        {% for source in msg.get_unique_sources %}
+                            <li>{{ source|basename }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form id="chat-form" class="mt-3" onsubmit="return false;">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Ask about your PDF..." id="user-query">
+            <button type="submit" class="btn btn-primary">Ask</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('chat-form').addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent default form submission
+        
+        const query = document.getElementById('user-query').value;
+        const chatContainer = document.getElementById('chat-container');
+        
+        // Add user query immediately
+        chatContainer.innerHTML += `
+            <div class="alert alert-primary user-query">
+                <strong>You:</strong> ${query}
+            </div>
+        `;
+    
+        try {
+            // Add loading indicator
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'alert alert-info';
+            loadingDiv.textContent = 'Processing...';
+            chatContainer.appendChild(loadingDiv);
+    
+            // Get CSRF token
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    
+            // Send AJAX request
+            const response = await fetch(window.location.href, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': csrfToken
+                },
+                body: new URLSearchParams({
+                    'query': query
+                })
+            });
+    
+            // Remove loading indicator
+            chatContainer.removeChild(loadingDiv);
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            
+            // Process response
+            const answer = data.answer.split('```');
+            const formattedAnswer = answer.map((part, index) => {
+                return index % 2 === 1 
+                    ? `<pre class="code-block"><code>${part.trim()}</code></pre>`
+                    : part.replace(/\n/g, '<br>');
+            }).join('');
+    
+            const uniqueSources = [...new Set(data.sources.map(s => s.source))];
+    
+            // Add AI response
+            chatContainer.innerHTML += `
+                <div class="alert alert-success ai-response">
+                    <div class="answer-section">${formattedAnswer}</div>
+                    <hr>
+                    <div class="sources-section">
+                        <strong>Sources:</strong>
+                        <ul class="source-list">
+                            ${uniqueSources.map(s => `<li>${s.split('/').pop()}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+    
+        } catch (error) {
+            console.error('Error:', error);
+            chatContainer.innerHTML += `
+                <div class="alert alert-danger">
+                    Error: ${error.message}
+                </div>
+            `;
+        }
+        
+        // Scroll to bottom and clear input
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        document.getElementById('user-query').value = '';
+    });
+</script>
+
+<style>
+.code-block {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.ai-response {
+    position: relative;
+}
+
+.source-list {
+    font-size: 0.9em;
+    margin-bottom: 0;
+    color: #6c757d;
+}
+
+.user-query {
+    margin-bottom: 10px;
+}
+
+.answer-section {
+    margin-bottom: 15px;
+}
+</style>
+{% endblock %}

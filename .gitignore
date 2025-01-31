@@ -1,0 +1,5 @@
+pdf_reader/__pycache__/
+pdf_reader/migrations/__pycache__/
+pdf_chater/__pycache__/
+.env
+pdf_reader/templatetags/__pycache__/
