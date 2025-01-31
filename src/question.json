@@ -1,0 +1,169 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is phishing, and how does it work?",
+        "options": [
+          "A. A legitimate way to reset your password",
+          "B. A cyber attack where attackers trick users into revealing sensitive information",
+          "C. A way to speed up internet connections",
+          "D. A secure method to log in to websites"
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "id": 2,
+        "question": "How can you identify a phishing email?",
+        "options": [
+          "A. It may contain urgent or threatening language",
+          "B. It always comes from a known sender",
+          "C. It only contains plain text with no links",
+          "D. It is always safe if it has a company logo"
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "id": 3,
+        "question": "Why should you never click on suspicious links in emails or messages?",
+        "options": [
+          "A. They may redirect you to a malicious website",
+          "B. They can automatically install malware on your device",
+          "C. They can steal your personal information",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 4,
+        "question": "How can you verify the legitimacy of a website before entering your credentials?",
+        "options": [
+          "A. Check for spelling errors in the URL",
+          "B. Look for HTTPS and a padlock symbol",
+          "C. Search the website's reputation online",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 5,
+        "question": "What role does HTTPS play in determining if a website is safe?",
+        "options": [
+          "A. It ensures that the website is 100% safe from phishing",
+          "B. It encrypts data between you and the website",
+          "C. It guarantees that the website is owned by a trusted company",
+          "D. It prevents all types of cyber attacks"
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "id": 6,
+        "question": "How can you recognize a phishing attempt through social media messages?",
+        "options": [
+          "A. The message contains urgent requests for personal information",
+          "B. The sender's profile looks suspicious or newly created",
+          "C. The message contains unusual links or attachments",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 7,
+        "question": "What are the dangers of downloading attachments from unknown emails?",
+        "options": [
+          "A. The attachment may contain malware or viruses",
+          "B. It can delete files from your computer",
+          "C. It may track your keystrokes and steal passwords",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 8,
+        "question": "Why should you enable two-factor authentication (2FA) on your accounts?",
+        "options": [
+          "A. It makes logging in faster",
+          "B. It adds an extra layer of security even if your password is compromised",
+          "C. It eliminates the need for strong passwords",
+          "D. It only works on banking websites"
+        ],
+        "correct_answer": "B"
+      },
+      {
+        "id": 9,
+        "question": "What are some common red flags of a phishing scam?",
+        "options": [
+          "A. Poor grammar and spelling mistakes",
+          "B. Requests for sensitive information",
+          "C. Unexpected email attachments or links",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 10,
+        "question": "How does phishing through phone calls (vishing) work, and how can you protect yourself?",
+        "options": [
+          "A. Attackers pretend to be from legitimate organizations to get your information",
+          "B. Always verify the caller's identity before sharing sensitive details",
+          "C. Do not trust unsolicited calls asking for financial details",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 11,
+        "question": "Why is it important to keep your software and antivirus programs up to date?",
+        "options": [
+          "A. It helps protect against new phishing techniques",
+          "B. It speeds up your computer",
+          "C. It prevents pop-up ads",
+          "D. It stops all types of cyber attacks"
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "id": 12,
+        "question": "How can you report phishing attempts to the authorities or your organization?",
+        "options": [
+          "A. Forward the email or message to the company's official fraud department",
+          "B. Use built-in email reporting tools for phishing",
+          "C. Report the scam to cybersecurity authorities",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 13,
+        "question": "What should you do if you accidentally fall for a phishing scam?",
+        "options": [
+          "A. Change your passwords immediately",
+          "B. Report the incident to your bank or IT department",
+          "C. Monitor your accounts for suspicious activity",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 14,
+        "question": "How can you educate others about phishing scams and prevention?",
+        "options": [
+          "A. Share knowledge about phishing risks with friends and family",
+          "B. Conduct security awareness training at workplaces",
+          "C. Report phishing attempts to raise awareness",
+          "D. All of the above"
+        ],
+        "correct_answer": "D"
+      },
+      {
+        "id": 15,
+        "question": "Why is it important to use strong, unique passwords for different accounts?",
+        "options": [
+          "A. It helps protect against credential stuffing attacks",
+          "B. It makes it easier to remember passwords",
+          "C. It ensures no one else can guess your password",
+          "D. It makes logging in faster"
+        ],
+        "correct_answer":"A"
+}
+]
+  }
