@@ -239,3 +239,15 @@
 2025-01-31 11:07:38,096 - -- END Twilio API Request --
 2025-01-31 11:07:38,695 - Response Status Code: 401
 2025-01-31 11:07:38,695 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:07:41 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ18b749017e7be40ca153893e9fc4d1fd', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a7dc8d09f0f88ce73b14b50e7fb2f762.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'EZqcmtUZgSI4dfAjSWQVFmcA2ecVqcpyvsPREZpkcLxgJEYyPkN8PQ=='}
+2025-01-31 11:07:41,613 - Blocked IP: 192.168.1.100
+2025-01-31 11:07:41,732 - -- BEGIN Twilio API Request --
+2025-01-31 11:07:41,732 - POST Request: https://api.twilio.com/2010-04-01/Accounts/your_account_sid/Messages.json
+2025-01-31 11:07:41,732 - Headers:
+2025-01-31 11:07:41,732 - Content-Type : application/x-www-form-urlencoded
+2025-01-31 11:07:41,732 - Accept : application/json
+2025-01-31 11:07:41,732 - User-Agent : twilio-python/9.4.4 (Windows AMD64) Python/3.12.0
+2025-01-31 11:07:41,732 - X-Twilio-Client : python-9.4.4
+2025-01-31 11:07:41,732 - Accept-Charset : utf-8
+2025-01-31 11:07:41,732 - -- END Twilio API Request --
+2025-01-31 11:07:42,439 - Response Status Code: 401
+2025-01-31 11:07:42,439 - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '134', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Jan 2025 11:07:45 GMT', 'X-API-Domain': 'api.twilio.com', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Twilio-Request-Id': 'RQ1b090839d26fd57ed5e7a99882105983', 'X-Shenanigans': 'none', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Home-Region': 'us1', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 76c8b6149bd17b365b0a900e898b9710.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PNQ50-P4', 'X-Amz-Cf-Id': 'CAi_a-tgZN7dGwpIwmVqr_D4PS9vF0oL6YTKwXzf8tji33uMXsQXnw=='}
