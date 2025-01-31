@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Inventory Management System</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --alert-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .dashboard {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            height: 400px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            color: white;
+            transition: opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            background-color: var(--alert-color);
+            color: white;
+        }
+
+        .user-type {
+            padding: 5px 10px;
+            background: var(--secondary-color);
+            border-radius: 4px;
+            color: white;
+        }
+
+        .upload-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        #stockTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #stockTable th, #stockTable td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #stockTable th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Smart Inventory Management</h1>
+        <div class="user-controls">
+            <select id="userType" onchange="changeUserView()">
+                <option value="retailer">Retailer</option>
+                <option value="supplier">Supplier</option>
+                <option value="customer">Customer</option>
+            </select>
+            <span class="user-type" id="currentUserType">Retailer</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="sidebar">
+                <h3>Quick Actions</h3>
+                <div id="retailerControls">
+                    <button onclick="uploadImage()">Upload Inventory Image</button>
+                    <button onclick="generateReport()">Generate Report</button>
+                    <button onclick="viewTrends()">View AI Insights</button>
+                </div>
+                
+                <div class="upload-section" id="dropZone">
+                    <p>Drag & Drop inventory images here</p>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none">
+                </div>
+
+                <div class="alerts-section">
+                    <h3>Recent Alerts</h3>
+                    <div id="alertsContainer"></div>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Items</h3>
+                        <p id="totalItems">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Low Stock Items</h3>
+                        <p id="lowStockItems">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Overstocked Items</h3>
+                        <p id="overStockItems">0</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="inventoryChart"></canvas>
+                </div>
+
+                <table id="stockTable">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Current Stock</th>
+                            <th>Status</th>
+                            <th>Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stockTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io();
+        let currentChart = null;
+
+        // Socket event listeners
+        socket.on('connect', () => {
+            console.log('Connected to server');
+            requestInitialData();
+        });
+
+        socket.on('inventory_update', (data) => {
+            updateDashboard(data);
+        });
+
+        socket.on('stock_alert', (alert) => {
+            showAlert(alert);
+        });
+
+        // Initialize chart
+        function initChart() {
+            const ctx = document.getElementById('inventoryChart').getContext('2d');
+            currentChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Stock Levels',
+                        data: [],
+                        borderColor: '#3498db',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        // User interface functions
+        function changeUserView() {
+            const userType = document.getElementById('userType').value;
+            document.getElementById('currentUserType').textContent = userType.charAt(0).toUpperCase() + userType.slice(1);
+            // Update UI based on user type
+            socket.emit('change_user_type', userType);
+        }
+
+        function uploadImage() {
+            document.getElementById('fileInput').click();
+        }
+
+        function showAlert(alert) {
+            const alertsContainer = document.getElementById('alertsContainer');
+            const alertElement = document.createElement('div');
+            alertElement.className = 'alert';
+            alertElement.textContent = alert.message;
+            alertsContainer.prepend(alertElement);
+        }
+
+        function updateDashboard(data) {
+            // Update statistics
+            document.getElementById('totalItems').textContent = data.totalItems;
+            document.getElementById('lowStockItems').textContent = data.lowStockItems;
+            document.getElementById('overStockItems').textContent = data.overStockItems;
+
+            // Update chart
+            if (currentChart) {
+                currentChart.data.labels = data.labels;
+                currentChart.data.datasets[0].data = data.values;
+                currentChart.update();
+            }
+
+            // Update table
+            updateStockTable(data.items);
+        }
+
+        function updateStockTable(items) {
+            const tbody = document.getElementById('stockTableBody');
+            tbody.innerHTML = '';
+            items.forEach(item => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.stock}</td>
+                    <td>${item.status}</td>
+                    <td>${item.lastUpdated}</td>
+                `;
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            
+            // Set up drag and drop
+            const dropZone = document.getElementById('dropZone');
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.style.background = '#e9ecef';
+            });
+            
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.style.background = '';
+            });
+            
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleImageUpload(files[0]);
+                }
+            });
+        });
+
+        function handleImageUpload(file) {
+            const formData = new FormData();
+            formData.append('image', file);
+            
+            fetch('/upload-inventory', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Upload successful:', data);
+                // Handle the response
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+            });
+        }
+    </script>
+</body>
+</html> 
