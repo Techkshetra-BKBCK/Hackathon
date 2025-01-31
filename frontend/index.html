@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h1>Multilingual Chat</h1>
+    </nav>
+    <div class="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="startSpeechRecognition()">🎤</button>
+        <select id="language-selector">
+            <option value="de">German</option>
+            <option value="zh">Chinese</option>
+            <option value="hi">Hindi</option>
+        </select>
+    </div>
+    <footer>
+        <p>&copy; 2025 Multilingual Chat</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

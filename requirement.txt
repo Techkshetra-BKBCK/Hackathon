@@ -1,0 +1,5 @@
+argostranslate
+coqui-tts
+websockets
+sounddevice
+numpy

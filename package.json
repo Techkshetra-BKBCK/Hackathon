@@ -1,0 +1,13 @@
+{
+  "name": "multilingual-chat",
+  "version": "1.0.0",
+  "description": "Offline multilingual chat app",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}
