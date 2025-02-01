@@ -18,8 +18,8 @@
         {% if generated_text %}
             <div class="result">
                 <h2><strong>Generated</strong> Advertisement:</h2>
-                <div class="ad-content">
-                    {{ generated_text|markdown_to_html|linebreaks }} <!-- Convert Markdown to HTML -->
+                <div id="ad-content" class="ad-content">
+                    {{ generated_text|linebreaks }} <!-- Preserve line breaks -->
                 </div>
             </div>
         {% endif %}
@@ -38,7 +38,7 @@
         background: #ffffff;
         border-radius: 12px;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        max-width: 600px;
+        max-width: 800px; /* Increased max-width for better layout */
         width: 100%;
         padding: 2.5rem;
         text-align: center;
@@ -133,7 +133,7 @@
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .hero {
-            padding: 1rem;
+            padding: 4rem 1rem; /* Adjust padding for smaller screens */
         }
 
         .container {
@@ -154,4 +154,16 @@
         }
     }
 </style>
+
+<script>
+    // JavaScript to convert **text** to <strong>text</strong>
+    document.addEventListener("DOMContentLoaded", function() {
+        const adContent = document.getElementById("ad-content");
+        if (adContent) {
+            // Replace **text** with <strong>text</strong>
+            adContent.innerHTML = adContent.innerHTML.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        }
+    });
+</script>
+
 {% endblock %}
