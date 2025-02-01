@@ -5,8 +5,11 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from .utils import process_pdf
 import os
-from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
+@login_required(login_url='login')
 def home(request):
     if request.method == 'POST' and request.FILES['pdf_file']:
         # Save uploaded file
@@ -33,6 +36,7 @@ def home(request):
 
 from django.views.decorators.http import require_http_methods
 @require_http_methods(["GET", "POST"])
+@login_required(login_url='login')
 def chat_with_pdf(request, pdf_id):
     pdf = PDFDocument.objects.get(id=pdf_id, user=request.user)
     qa_chain = create_qa_chain(pdf.vector_db_path)
@@ -54,9 +58,12 @@ def chat_with_pdf(request, pdf_id):
     
     # Retrieve existing chat messages
     chat_messages = ChatMessage.objects.filter(pdf_document=pdf).order_by('timestamp')
+    user_pdfs = PDFDocument.objects.filter(user=request.user).order_by('-uploaded_at')
+    
     return render(request, 'chat.html', {
         'pdf': pdf,
-        'chat_messages': chat_messages
+        'chat_messages': chat_messages,
+        'user_pdfs': user_pdfs
     })
 
 from django.contrib.auth import login, authenticate
@@ -86,3 +93,9 @@ def login_view(request):
     else:
         form = CustomAuthenticationForm()
     return render(request, 'login.html', {'form': form})
+
+@login_required(login_url='login')
+def logout_view(request):
+    logout(request)
+    messages.success(request, "Logged out successfully!")
+    return redirect("login")

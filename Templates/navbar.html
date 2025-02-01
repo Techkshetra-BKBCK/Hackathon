@@ -1,19 +1,27 @@
-<div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto">
-        {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            </li>
-            <li class="nav-item">
-                <span class="nav-link">Welcome, {{ user.username }}</span>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-            </li>
-        {% endif %}
-    </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--bg-darker);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: var(--accent-teal); font-size:30px">SecurePDF</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}" style="color: var(--text-primary);">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link" style="color: var(--text-secondary);">Welcome, {{ user.username }}</span>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}" style="color: var(--text-primary);">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}" style="color: var(--text-primary);">Sign Up</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

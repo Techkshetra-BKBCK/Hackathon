@@ -3,149 +3,523 @@
 {% load chat_filters %}
 
 {% block content %}
-<div class="container">
-    <h3>Chatting with: {{ pdf.original_filename }}</h3>
-    
-    <div id="chat-container" class="mt-4" style="height: 60vh; overflow-y: auto">
-        {% for msg in chat_messages %}
-            <div class="alert alert-primary user-query">
-                <strong>You:</strong> {{ msg.message }}
+<div class="container-fluid1 dark-theme">
+    <div class="row g-0">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar">
+            <div class="sidebar-header">
+                <h4><i class="fas fa-history"></i> Chat History</h4>
             </div>
-            <div class="alert alert-success ai-response">
-                <div class="answer-section">
-                    {{ msg.response|format_code_blocks }}
-                </div>
-                <hr>
-                <div class="sources-section">
-                    <strong>Sources:</strong>
-                    <ul class="source-list">
-                        {% for source in msg.get_unique_sources %}
-                            <li>{{ source|basename }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
+            
+            <!-- PDF List -->
+            <div class="pdf-list">
+                <h6 class="sidebar-subheader"><i class="fas fa-file-pdf"></i> Your PDFs</h6>
+                {% for doc in user_pdfs %}
+                <a href="{% url 'chat' pdf_id=doc.id %}" 
+                   class="pdf-item {% if doc.id == pdf.id %}active{% endif %}">
+                    <div class="pdf-item-content">
+                        <i class="fas fa-file-alt"></i>
+                        <span>{{ doc.original_filename|truncatechars:25 }}</span>
+                    </div>
+                    <div class="pdf-item-meta">
+                        <small>{{ doc.uploaded_at|date:"M d" }}</small>
+                        {% if doc.processed %}
+                        <i class="fas fa-check-circle text-success"></i>
+                        {% else %}
+                        <i class="fas fa-hourglass-half text-warning"></i>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
 
-    <form id="chat-form" class="mt-3" onsubmit="return false;">
-        {% csrf_token %}
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Ask about your PDF..." id="user-query">
-            <button type="submit" class="btn btn-primary">Ask</button>
+            <!-- Chat History -->
+            <div class="chat-history">
+                <h6 class="sidebar-subheader"><i class="fas fa-comments"></i> Current Chat</h6>
+                {% for msg in chat_messages %}
+                <div class="history-item">
+                    <div class="history-question">
+                        <i class="fas fa-question"></i>
+                        {{ msg.message|truncatechars:40 }}
+                    </div>
+                    <small class="history-time">{{ msg.timestamp|time:"H:i" }}</small>
+                </div>
+                {% empty %}
+                <div class="text-muted px-3">No messages yet</div>
+                {% endfor %}
+            </div>
         </div>
-    </form>
+
+        <!-- Main Chat Area -->
+        <div class="col-md-9 main-chat-area">
+            <!-- Existing chat header and messages container -->
+            <div class="chat-header">
+                <h3 class="pdf-title">
+                    <i class="fas fa-file-pdf"></i>
+                    {{ pdf.original_filename|truncatechars:30 }}
+                </h3>
+                <div class="chat-info">
+                    <span class="badge bg-purple">AI Assistant</span>
+                    <small class="text-muted">Powered by Django</small>
+                </div>
+            </div>
+            
+            <div id="chat-container" class="chat-messages">
+                {% for msg in chat_messages %}
+                    <div class="message user-message">
+                        <div class="message-header">
+                            <i class="fas fa-user"></i>
+                            <span>You</span>
+                            <small class="message-time">{{ msg.timestamp|time:"H:i" }}</small>
+                        </div>
+                        <div class="message-content">
+                            {{ msg.message }}
+                        </div>
+                    </div>
+        
+                    <div class="message ai-message">
+                        <div class="message-header">
+                            <i class="fas fa-robot"></i>
+                            <span>Assistant</span>
+                            <small class="message-time">{{ msg.timestamp|time:"H:i" }}</small>
+                        </div>
+                        <div class="message-content">
+                            {{ msg.response|format_code_blocks }}
+                        </div>
+                        <div class="message-sources">
+                            <div class="sources-title">
+                                <i class="fas fa-file-alt"></i>
+                                References
+                            </div>
+                            <div class="sources-list">
+                                {% for source in msg.get_unique_sources %}
+                                    <span class="source-item">{{ source|basename }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        
+            <form id="chat-form" class="chat-input">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" class="form-control" 
+                           placeholder="Ask something about the document..." 
+                           id="user-query"
+                           autocomplete="off">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script>
-    document.getElementById('chat-form').addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent default form submission
-        
-        const query = document.getElementById('user-query').value;
-        const chatContainer = document.getElementById('chat-container');
-        
-        // Add user query immediately
-        chatContainer.innerHTML += `
-            <div class="alert alert-primary user-query">
-                <strong>You:</strong> ${query}
+// JavaScript remains mostly the same, just update class names to match new structure
+document.getElementById('chat-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const query = document.getElementById('user-query').value;
+    const chatContainer = document.getElementById('chat-container');
+    
+    // Add user message
+    chatContainer.innerHTML += `
+        <div class="message user-message">
+            <div class="message-header">
+                <i class="fas fa-user"></i>
+                <span>You</span>
+                <small class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
             </div>
-        `;
-    
-        try {
-            // Add loading indicator
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'alert alert-info';
-            loadingDiv.textContent = 'Processing...';
-            chatContainer.appendChild(loadingDiv);
-    
-            // Get CSRF token
-            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    
-            // Send AJAX request
-            const response = await fetch(window.location.href, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-CSRFToken': csrfToken
-                },
-                body: new URLSearchParams({
-                    'query': query
-                })
-            });
-    
-            // Remove loading indicator
-            chatContainer.removeChild(loadingDiv);
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            const data = await response.json();
-            
-            // Process response
-            const answer = data.answer.split('```');
-            const formattedAnswer = answer.map((part, index) => {
-                return index % 2 === 1 
-                    ? `<pre class="code-block"><code>${part.trim()}</code></pre>`
-                    : part.replace(/\n/g, '<br>');
-            }).join('');
-    
-            const uniqueSources = [...new Set(data.sources.map(s => s.source))];
-    
-            // Add AI response
-            chatContainer.innerHTML += `
-                <div class="alert alert-success ai-response">
-                    <div class="answer-section">${formattedAnswer}</div>
-                    <hr>
-                    <div class="sources-section">
-                        <strong>Sources:</strong>
-                        <ul class="source-list">
-                            ${uniqueSources.map(s => `<li>${s.split('/').pop()}</li>`).join('')}
-                        </ul>
+            <div class="message-content">${query}</div>
+        </div>
+    `;
+
+    try {
+        // Add loading message
+        chatContainer.innerHTML += `
+            <div class="message ai-message loading">
+                <div class="message-header">
+                    <i class="fas fa-robot"></i>
+                    <span>Assistant</span>
+                </div>
+                <div class="message-content">
+                    <div class="loading-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
                     </div>
                 </div>
-            `;
-    
-        } catch (error) {
-            console.error('Error:', error);
-            chatContainer.innerHTML += `
-                <div class="alert alert-danger">
-                    Error: ${error.message}
-                </div>
-            `;
-        }
+            </div>
+        `;
+
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const response = await fetch(window.location.href, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrfToken,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({query: query})
+        });
+
+        const data = await response.json();
         
-        // Scroll to bottom and clear input
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-        document.getElementById('user-query').value = '';
-    });
+        // Remove loading message
+        chatContainer.lastElementChild.remove();
+
+        // Process and add AI response
+        const answer = data.answer.split('```');
+        const formattedAnswer = answer.map((part, index) => {
+            return index % 2 === 1 
+                ? `<pre class="code-block"><code>${part.trim()}</code></pre>`
+                : part.replace(/\n/g, '<br>');
+        }).join('');
+
+        const uniqueSources = [...new Set(data.sources.map(s => s.source))];
+
+        chatContainer.innerHTML += `
+            <div class="message ai-message">
+                <div class="message-header">
+                    <i class="fas fa-robot"></i>
+                    <span>Assistant</span>
+                    <small class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
+                </div>
+                <div class="message-content">${formattedAnswer}</div>
+                <div class="message-sources">
+                    <div class="sources-title">
+                        <i class="fas fa-file-alt"></i>
+                        References
+                    </div>
+                    <div class="sources-list">
+                        ${uniqueSources.map(s => `<span class="source-item">${s.split('/').pop()}</span>`).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+    } catch (error) {
+        console.error(error);
+        // Handle error state
+    }
+    
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    document.getElementById('user-query').value = '';
+});
 </script>
 
 <style>
-.code-block {
-    background-color: #f8f9fa;
-    border-radius: 4px;
-    padding: 15px;
-    margin: 10px 0;
-    font-family: 'Courier New', monospace;
+
+body{
+    background-color: var(--bg-dark);
+}
+.dark-theme {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    height: 95dvh;
+    display: flex;
+    flex-direction: column;
 }
 
-.ai-response {
+.chat-header {
+    padding: 0.2rem;
+}
+
+.pdf-title {
+    color: var(--accent-purple);
+    margin: 5px;
+    font-weight: 500;
+}
+
+.chat-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 5px;
+}
+
+.badge.bg-purple {
+    background-color: var(--accent-purple);
+    color: var(--bg-dark);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    scroll-behavior: smooth;
+}
+.container-fluid1{
+    width:100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: none;
+    margin-left: -14px;
+}
+
+.message {
+    max-width: 75%;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
     position: relative;
 }
 
-.source-list {
+.user-message {
+    background-color: #2d2d2d;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.ai-message {
+    background-color: #262626;
+    border: 1px solid #373737;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
     font-size: 0.9em;
-    margin-bottom: 0;
-    color: #6c757d;
 }
 
-.user-query {
-    margin-bottom: 10px;
+.message-header i {
+    font-size: 0.9em;
 }
 
-.answer-section {
-    margin-bottom: 15px;
+.message-time {
+    margin-left: auto;
+    font-size: 0.85em;
+}
+
+.message-content {
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.code-block {
+    background-color: #00000070;
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    overflow-x: auto;
+}
+
+.message-sources {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #373737;
+}
+
+.sources-title {
+    color: var(--text-secondary);
+    font-size: 0.85em;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sources-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.source-item {
+    background-color: #373737;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8em;
+    color: var(--text-secondary);
+}
+
+.chat-input {
+    padding: 1.5rem;
+    background-color: var(--bg-dark);
+}
+
+.form-control {
+    background-color: #2d2d2d;
+    border: none;
+    color: var(--text-primary);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+    background-color: #373737;
+    color: var(--text-primary);
+    box-shadow: none;
+    border-color: var(--accent-purple);
+}
+
+.btn-primary {
+    background-color: var(--accent-purple);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #9b5cf6;
+}
+
+.loading-dots {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    animation: dot-bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-6px); }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4d4d4d;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5d5d5d;
+}
+.sidebar {
+    background-color: #151515;
+    height: 93dvh;
+    border-right: 1px solid #2d2d2d;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.sidebar-header {
+    padding: 1rem 0;
+    border-bottom: 1px solid #2d2d2d;
+    margin-bottom: 1rem;
+}
+
+.sidebar-subheader {
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+    font-size: 0.85em;
+}
+
+.pdf-list {
+    margin-bottom: 2rem;
+}
+
+.pdf-item {
+    display: block;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.75rem;
+    margin: 0.25rem 0;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.pdf-item:hover {
+    background-color: #2d2d2d;
+}
+
+.pdf-item.active {
+    background-color: var(--accent-purple);
+    color: var(--bg-dark);
+}
+
+.pdf-item-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pdf-item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    font-size: 0.8em;
+    color: inherit;
+}
+
+.chat-history {
+    border-top: 1px solid #2d2d2d;
+    padding-top: 1rem;
+}
+
+.history-item {
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.history-item:hover {
+    background-color: #2d2d2d;
+}
+
+.history-question {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85em;
+}
+
+.history-time {
+    color: var(--text-secondary);
+    margin-left: 1.5rem;
+    font-size: 0.75em;
+}
+
+.main-chat-area {
+    display: flex;
+    flex-direction: column;
+    height: 93dvh;
 }
 </style>
+
+<script>
+// Add click handler for chat history items
+document.querySelectorAll('.history-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const messageId = item.dataset.messageId;
+        const messageElement = document.querySelector(`#message-${messageId}`);
+        messageElement.scrollIntoView({ behavior: 'smooth' });
+        messageElement.classList.add('highlight-message');
+        setTimeout(() => messageElement.classList.remove('highlight-message'), 2000);
+    });
+});
+</script>
 {% endblock %}

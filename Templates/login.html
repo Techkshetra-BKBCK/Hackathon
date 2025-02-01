@@ -1,36 +1,169 @@
-{% extends 'base.html' %}
-{% block title %}Login{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Pages</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-darker: #121212;
+            --accent-purple:rgb(95, 121, 233);
+            --accent-teal:rgb(3, 121, 218);
+            --text-primary: #e0e0e0;
+            --text-secondary: #9e9e9e;
+        }
 
-{% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow">
-            <div class="card-body">
-                <h2 class="card-title text-center mb-4">Login</h2>
-                
-                <form method="post">
-                    {% csrf_token %}
-                    
-                    <div class="mb-3">
-                        <label for="id_username" class="form-label">Email or Username</label>
-                        <input type="text" name="username" class="form-control" required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="id_password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" required>
-                    </div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
-                </form>
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2rem;
+        }
 
-                <div class="mt-3 text-center">
-                    <a href="{% url 'signup' %}" class="text-decoration-none">
-                        Don't have an account? Sign Up
-                    </a>
-                </div>
+        .auth-container {
+            background-color: var(--bg-darker);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--accent-purple);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-dark);
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            color: var(--text-primary);
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--accent-purple);
+            color: var(--bg-darker);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #9d67d4;
+        }
+
+        .switch-auth {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .switch-auth a {
+            color: var(--accent-teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .switch-auth a:hover {
+            color: #03b8a6;
+        }
+
+        .error-message {
+            color: #cf6679;
+            background-color: #2c0b0e;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Page Template -->
+    <div class="auth-container" id="login-container">
+        <h1>Login</h1>
+        
+        {% if form.errors %}
+            <div class="error-message">
+                Invalid username or password. Please try again.
             </div>
+        {% endif %}
+
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="switch-auth">
+            <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
         </div>
     </div>
-</div>
-{% endblock %}
+
+    <!-- Signup Page Template (Similar structure, just change form fields and URLs) -->
+    <!--
+    <div class="auth-container" id="signup-container">
+        <h1>Sign Up</h1>
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <input type="password" id="password1" name="password1" required>
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input type="password" id="password2" name="password2" required>
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+        <div class="switch-auth">
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </div>
+    -->
+</body>
+</html>

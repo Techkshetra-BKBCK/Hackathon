@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
-
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-8 text-center">
-        <h1 class="mb-4">Chat Securely with Your PDFs</h1>
-        <p class="lead">Upload a PDF, and ask questions using AI - with enterprise-grade security</p>
+        <h1 class="mb-4" style="color: rgb(200, 199, 218);">Chat Securely with Your PDFs</h1>
+        <p class="lead" style="color: var(--text-secondary);">Upload a PDF, and ask questions using AI - with enterprise-grade security</p>
 
         <!-- File Upload Form -->
         <div class="file-upload-box">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <input type="file" class="form-control" name="pdf_file" accept=".pdf" required>
-                    <small class="text-muted">Only PDF files are allowed (max 25MB)</small>
+                    <input type="file" class="form-control" name="pdf_file" accept=".pdf" required 
+                           style="background-color: var(--bg-dark); color: var(--text-primary); border-color: var(--accent-purple);">
+                    <small class="text-muted" style="color: var(--text-secondary);">Only PDF files are allowed (max 25MB)</small>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg">
                     <i class="bi bi-upload"></i> Upload & Process
@@ -25,26 +25,33 @@
         <div class="row mt-5">
             <div class="col-md-4">
                 <div class="feature-icon">
-                    <i class="bi bi-shield-lock"></i>
+                    <i class="icon fas fa-lock"></i>
                 </div>
-                <h4>Military-Grade Encryption</h4>
-                <p>All files encrypted at rest and in transit</p>
+                <h4 style="color: rgb(200, 199, 218);">Military-Grade Encryption</h4>
+                <p style="color: var(--text-secondary);">All files encrypted at rest and in transit</p>
             </div>
             <div class="col-md-4">
                 <div class="feature-icon">
-                    <i class="bi bi-robot"></i>
+                    <i class="icon fas fa-robot"></i>
                 </div>
-                <h4>AI-Powered Insights</h4>
-                <p>Get instant answers using Groq's lightning-fast AI</p>
+                <h4 style="color: rgb(200, 199, 218)">AI-Powered Insights</h4>
+                <p style="color: var(--text-secondary);">Get instant answers using Groq's lightning-fast AI</p>
             </div>
             <div class="col-md-4">
                 <div class="feature-icon">
-                    <i class="bi bi-file-earmark-check"></i>
+                    <i class="icon fas fa-file-contract"></i>
                 </div>
-                <h4>Automatic Compliance</h4>
-                <p>GDPR & HIPAA compliant processing</p>
+                <h4 style="color: rgb(200, 199, 218);">Automatic Compliance</h4>
+                <p style="color: var(--text-secondary);">GDPR & HIPAA compliant processing</p>
             </div>
         </div>
     </div>
 </div>
-{% endblock %}
+
+<!-- Footer with Contact Icon -->
+<footer style="position: fixed; bottom: 20px; right: 20px;">
+    <a href="" class="text-decoration-none" title="Contact Us">
+        <i class="fa fa-question-circle" style="font-size: 4rem; color: var(--accent-teal);"></i>
+    </a>
+</footer>
+{% endblock %}

@@ -6,19 +6,60 @@
     <title>SecurePDF Chat - {% block title %}{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-darker: #121212;
+            --accent-purple:rgb(95, 121, 233);
+            --accent-teal:rgb(3, 121, 218);
+            --text-primary:rgb(236, 235, 235);
+            --text-secondary:rgb(180, 179, 179);
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            scrollbar-width: none;
+        }
+        
+        .container {
+            padding: 0rem;
+            border-radius: 8px;
+            max-width: 95%;
+        }
+        
         .file-upload-box {
-            border: 2px dashed #007bff;
+            border: 2px dashed var(--accent-purple);
             padding: 2rem;
             text-align: center;
             margin: 2rem 0;
             border-radius: 10px;
+            background-color: var(--bg-dark);
         }
+        
         .feature-icon {
             font-size: 2.5rem;
-            color: #007bff;
+            color: var(--accent-teal);
             margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-teal);
+            border-color: var(--accent-teal);
+            color: var(--bg-darker);
+        }
+        
+        .btn-primary:hover {
+            background-color:rgb(1, 72, 131);
+            border-color: #03b8a6;
+        }
+        
+        .alert-danger {
+            background-color: #4a1c1c;
+            border-color: #5c2525;
+            color: #ff8f8f;
         }
     </style>
 </head>
@@ -34,7 +75,7 @@
         {% endfor %}
     </div>
     {% endif %}
-    <div class="container mt-4">
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>
