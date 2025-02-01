@@ -4,6 +4,9 @@ import cv2
 import numpy as np
 import requests
 
+# import libary here , which libary you want you can import from here
+
+# UI Desgin Start From Here
 class DeepFakeDetectionApp:
     def _init_(self, root):
         self.root = root
@@ -70,6 +73,8 @@ class DeepFakeDetectionApp:
             font=("Arial", 10), 
             bg="#f0f0f5"
         )
+        # UI Desgin Start From Here
+
         self.file_path_label.pack(pady=5)
 
         self.selected_file = None
@@ -120,16 +125,17 @@ class DeepFakeDetectionApp:
         image = image.astype('float32') / 255.0  # Normalize
         image = np.expand_dims(image, axis=0)  # Add batch dimension
         return image
-
+       # API integreation done here,  api key integreation code here 
     def send_request(self, data, media_type):
         # Send the image or video data to the deepfake detection API
-        url = "https://api.thehive.ai/api/v2/task/deepfake_detection"  # Replace with your API endpoint
+        url = "Replace This With YOur API Key"  # Replace with your API endpoint
         files = {'file': data}
         response = requests.post(url, files=files, data={'type': media_type})
-        return response.json()
+        return response.json() # to use json function you have to import json package
 
     def display_result(self, response):
         # Display the result from the API
+        # get method ka jo response ayega wah yaha pe likha taki result show ho 
         if response.get('success'):
             probability = response.get('probability', 0)
             messagebox.showinfo("Result", f"Deepfake Probability: {probability:.2f}")
