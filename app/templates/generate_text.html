@@ -3,29 +3,26 @@
 {% block body %}
 <div class="hero">
     <div class="container">
-        <h1>Generate Stunning Advertisement Images</h1>
-        <p class="subtitle">Turn your ideas into visually appealing ads with AI-powered image generation.</p>
+        <h1>Generate Advertisement Text</h1>
+        <p class="subtitle">Turn your ideas into compelling advertisements with AI-powered text generation.</p>
         
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="prompt">Enter Image Prompt:</label>
-                <input type="text" id="prompt" name="prompt" placeholder="E.g., A modern tech gadget with vibrant colors and bold text" required>
+                <label for="prompt">Enter Advertisement Prompt:</label>
+                <input type="text" id="prompt" name="prompt" placeholder="E.g., Advertisement for a new gym" required>
             </div>
-            <button type="submit" class="btn-primary">Generate Image</button>
+            <button type="submit" class="btn-primary">Generate Text</button>
         </form>
 
-        {% if image_url %}
-            <div class="generated-image">
-                <h2>Your Generated Image:</h2>
-                <div class="image-wrapper">
-                    <img src="{{ image_url }}" alt="Generated Image" class="featured-image">
+        {% if generated_text %}
+            <div class="result">
+                <h2><strong>Generated</strong> Advertisement:</h2>
+                <div class="ad-content">
+                    {{ generated_text|markdown_to_html|linebreaks }} <!-- Convert Markdown to HTML -->
                 </div>
-                <p class="image-notice">Refresh the page to generate a new image.</p>
             </div>
         {% endif %}
-        
-        <p class="notice">Powered by Pollination API</p>
     </div>
 </div>
 
@@ -106,39 +103,55 @@
         background-color: #1A365D;
     }
 
-    .generated-image {
+    .result {
         margin-top: 2rem;
+        background-color: #F9FAFB;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #E5E7EB;
+        text-align: left;
     }
 
-    .generated-image h2 {
-        font-size: 1.5rem;
+    .result h2 {
+        font-size: 1.25rem;
         color: #2C5282;
         margin-bottom: 1rem;
     }
 
-    .image-wrapper {
-        border: 1px solid #E5E7EB;
-        border-radius: 8px;
-        padding: 1rem;
-        background: #F9FAFB;
-    }
-
-    .featured-image {
-        width: 100%;
-        max-width: 100%;
-        border-radius: 8px;
-    }
-
-    .image-notice {
+    .ad-content {
         font-size: 0.875rem;
-        color: #6B7280;
-        margin-top: 1rem;
+        color: #374151;
+        line-height: 1.6;
+        white-space: pre-wrap; /* Preserve line breaks and formatting */
     }
 
-    .notice {
-        font-size: 0.875rem;
-        color: #6B7280;
-        margin-top: 2rem;
+    .ad-content strong {
+        font-weight: 700;
+        color: #2C5282;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero {
+            padding: 1rem;
+        }
+
+        .container {
+            padding: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        .subtitle {
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
     }
 </style>
 {% endblock %}
