@@ -1,0 +1,226 @@
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <!-- Chatbot Icon -->
+        <div class="chatbot-icon" onclick="toggleChatbot()">
+          <img src="https://raw.githubusercontent.com/CodeAx1avek/portfolio/refs/heads/main/images/sachinanon.png" alt="Chatbot Icon">
+        </div>
+        <!-- Chatbot Window -->
+        <div class="chatbot-window" id="chatbotWindow">
+          <div class="chatbot-header">CyberQuest Assistant</div>
+          <div class="chatbot-body" id="chatbotBody">
+            <div class="message bot">
+              <p>Hello! How can I assist you today?</p>
+            </div>
+          </div>
+          <div class="chatbot-footer">
+            <input type="text" id="chatbotInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+      
+      <style>
+        /* Chatbot Container */
+      .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+      
+      /* Chatbot Icon */
+      .chatbot-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, #00ff88, #ff4444);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+      }
+      
+      .chatbot-icon:hover {
+        transform: scale(1.1);
+      }
+      
+      .chatbot-icon img {
+        width: 30px;
+        height: 30px;
+      }
+      
+      /* Chatbot Window */
+      .chatbot-window {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        width: 350px; /* Increased width */
+        height: 500px; /* Increased height */
+        background: #1a1a1a;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      
+      .chatbot-header {
+        background: linear-gradient(45deg, #00ff88, #ff4444);
+        padding: 1rem;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.2rem;
+      }
+      
+      .chatbot-body {
+        flex: 1;
+        padding: 1rem;
+        overflow-y: auto;
+        scroll-behavior: smooth; /* Smooth scrolling */
+        background: #0a0a0a;
+      }
+      
+      .chatbot-footer {
+        display: flex;
+        gap: 0.5rem;
+        padding: 1rem;
+        background: #1a1a1a;
+        border-top: 1px solid #333;
+      }
+      
+      .chatbot-footer input {
+        flex: 1;
+        padding: 0.75rem;
+        border: 1px solid #444;
+        border-radius: 8px;
+        background: #0a0a0a;
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+      }
+      
+      .chatbot-footer input:focus {
+        border-color: #00ff88;
+      }
+      
+      .chatbot-footer button {
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(45deg, #00ff88, #ff4444);
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s;
+      }
+      
+      .chatbot-footer button:hover {
+        background: linear-gradient(45deg, #00cc66, #cc0000);
+      }
+      
+      /* Message Styling */
+      .message {
+        margin-bottom: 1rem;
+      }
+      
+      .message.user {
+        text-align: right;
+      }
+      
+      .message.bot {
+        text-align: left;
+      }
+      
+      .message p {
+        display: inline-block;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        max-width: 80%;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+      
+      .message.user p {
+        background: linear-gradient(45deg, #00ff88, #ff4444);
+        color: #fff;
+      }
+      
+      .message.bot p {
+        background: #333;
+        color: #fff;
+      }
+      </style>
+      
+      <script>
+        // Toggle chatbot window
+      function toggleChatbot() {
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+      }
+      
+      // Send message to backend (Langflow API)
+      async function sendMessage() {
+        const input = document.getElementById('chatbotInput');
+        const message = input.value.trim();
+        if (message) {
+          const chatbotBody = document.getElementById('chatbotBody');
+      
+          // Add user message to chat
+          chatbotBody.innerHTML += `
+            <div class="message user">
+              <p>${message}</p>
+            </div>
+          `;
+          input.value = '';
+          chatbotBody.scrollTop = chatbotBody.scrollHeight;
+      
+          // Send message to backend
+          const response = await fetch('/send-to-chatbot/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token for Django
+            },
+            body: JSON.stringify({ message }),
+          });
+      
+          const data = await response.json();
+      
+          // Add bot response to chat
+          chatbotBody.innerHTML += `
+            <div class="message bot">
+              <p>${data.response}</p>
+            </div>
+          `;
+          chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+      }
+      
+      // Handle Enter key press
+      function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+          sendMessage();
+        }
+      }
+      
+      // Function to get CSRF token (for Django)
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + '=') {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      </script>
+   
